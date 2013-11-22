@@ -17,6 +17,41 @@
       body {
         background-color: transparent;
       }
+
+      /* Sticky footer styles -------------------------------------------------- */
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -100px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 100px;
+      }
+      #footer {
+/*        background-color: #f5f5f5;*/
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }      
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,19 +61,47 @@
     <![endif]-->
   </head>
   <body>
-  <div class="container">
-    <div class="row">
-          <div class="col-xs-12">
-            <div style="background-color: opacity 0.4;" class="well">
-            <p>Yeah!</p>
+    <div id="wrap">
+      <div id="push"></div>
+    </div> <!-- end wrap -->
+
+    <div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-8 col-md-4">
+            <div class="input-group">
+              <span class="input-group-addon">Steinar</span>
+              <input type="text" class="form-control" autofocus="">
             </div>
           </div>
-
+          <div class="col-xs-8 col-md-4">
+            <div class="input-group">
+              <span class="input-group-addon">Bjarte</span>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-xs-8 col-md-4">
+            <div class="input-group">
+              <span class="input-group-addon">Tore</span>
+              <input type="text" class="form-control">
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.0.2/bootstrap.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js"></script>
+    <!-- <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.0.2/bootstrap.min.js"></script> -->
+
+    <script>
+      $(function() {
+        console.log("yeah");
+      });
+    </script>
+
   </body>
 </html>
+
