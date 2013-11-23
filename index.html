@@ -61,52 +61,51 @@
     <![endif]-->
   </head>
   <body>
-    <div id="wrap">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-          <span class="pull-right">
-            GitHub
-          </span>
-          </div>
-        </div>
-      </div>
-      <div id="push"></div>
-    </div> <!-- end wrap -->
-
-    <div id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <div>
-              <span class="pull-right "><span style="font-size: 70px; color: white;">Gjennomsnittet er: </span><span style="font-size: 100px; color: white;" data-bind="text: Average"></span></span>
-            </div>
-          </div>
-          <br />
-        </div>      
-        <div class="row">
-          <div class="col-xs-8 col-md-4">
-            <div class="input-group">
-              <span class="input-group-addon">Steinar</span>
-              <input type="text" class="form-control" autofocus="" data-bind="value: SteinarScore, valueUpdate: 'afterkeydown'">
-            </div>
-          </div>
-          <div class="col-xs-8 col-md-4">
-            <div class="input-group">
-              <span class="input-group-addon">Bjarte</span>
-              <input type="text" class="form-control" data-bind="value: BjarteScore, valueUpdate: 'afterkeydown'">
-            </div>
-          </div>
-          <div class="col-xs-8 col-md-4">
-            <div class="input-group">
-              <span class="input-group-addon">Tore</span>
-              <input type="text" class="form-control" data-bind="value: ToreScore, valueUpdate: 'afterkeydown'">
+      <div id="wrap">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+            <span class="pull-right">
+              <a target="_blank" href="http://github.com/danmusk/RR-Calc"><img src="images/github.gif" width="50" height="50"></a>
+            </span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+        <div id="push"></div>
+      </div> <!-- end wrap -->
 
+      <div id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <div>
+                <span class="pull-right "><span style="font-size: 65px; color: white;">Gjennomsnittet er </span><span style="font-size: 80px; color: white;" data-bind="text: Average"></span></span>
+              </div>
+            </div>
+            <br />
+          </div>      
+          <div class="row">
+            <div class="col-xs-8 col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Steinar</span>
+                <input type="text" class="form-control" autofocus="" data-bind="value: SteinarScore, valueUpdate: 'afterkeydown'">
+              </div>
+            </div>
+            <div class="col-xs-8 col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Bjarte</span>
+                <input type="text" class="form-control" data-bind="value: BjarteScore, valueUpdate: 'afterkeydown'">
+              </div>
+            </div>
+            <div class="col-xs-8 col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Tore</span>
+                <input type="text" class="form-control" data-bind="value: ToreScore, valueUpdate: 'afterkeydown'">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -115,6 +114,16 @@
 
     <script>
       $(function() {
+        
+        $('body').on('keydown', 'input', function(e) {
+            if (e.keyCode == 13) {
+                var focusable = $('input,a,select,button,textarea').filter(':visible');
+                focusable.eq(focusable.index(this)+1).focus();
+                console.log('enter');
+                return false;
+            }
+        });
+
         function ViewModel() {
           var self = this;
           self.SteinarScore = ko.observable("");
@@ -134,10 +143,15 @@
             if (isNaN(t)) {
               t = 0;
             }
+            var result = ((s+b+t)/3);
+            if (result >= 69 && result < 70) {
+              return " jammen meg " + result.toFixed(0);
+            }
             return ((s+b+t)/3).toFixed(1);
           });
         }
       ko.applyBindings(new ViewModel());
+
       });
     </script>
 
