@@ -64,7 +64,7 @@
   </head>
   <body>
       <div id="wrap">
-        <span class="pull-right">
+        <span class="pull-right hidden-xs">
           <a target="_blank" href="https://github.com/danmusk/RR-Calc">
             <i style="color: #DADADA;" class="fa fa-github fa-3x"></i>
           </a>
@@ -77,25 +77,30 @@
           <div class="row">
             <div class="col-xs-12">
               <div>
-                <span class="pull-right "><span style="font-size: 65px; color: white;">Gjennomsnittet er </span><span style="font-size: 80px; color: white;" data-bind="text: Average"></span></span>
+                <span class="pull-right hidden-xs">
+                  <span style="font-size: 65px; color: white;">Gjennomsnittet er </span><span style="font-size: 80px; color: white;" data-bind="text: Average"></span>
+                </span>
+                <span class="pull-right visible-xs">
+                  <span style="font-size: 35px; color: white;">Gjennomsnittet er </span><span style="font-size: 50px; color: white;" data-bind="text: Average"></span>
+                </span>                
               </div>
             </div>
             <br />
           </div>      
           <div class="row">
-            <div class="col-xs-8 col-md-4">
+            <div class="col-xs-12 col-md-4">
               <div class="input-group">
                 <span class="input-group-addon">Steinar</span>
                 <input type="text" class="form-control" autofocus="" data-bind="value: SteinarScore, valueUpdate: 'afterkeydown'">
               </div>
             </div>
-            <div class="col-xs-8 col-md-4">
+            <div class="col-xs-12 col-md-4">
               <div class="input-group">
                 <span class="input-group-addon">Bjarte</span>
                 <input type="text" class="form-control" data-bind="value: BjarteScore, valueUpdate: 'afterkeydown'">
               </div>
             </div>
-            <div class="col-xs-8 col-md-4">
+            <div class="col-xs-12 col-md-4">
               <div class="input-group">
                 <span class="input-group-addon">Tore</span>
                 <input type="text" class="form-control" data-bind="value: ToreScore, valueUpdate: 'afterkeydown'">
